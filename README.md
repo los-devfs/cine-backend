@@ -86,3 +86,20 @@
 
 Nombres de las ramas:
 [feat o fix]/INICIALES-númeroTarea/breve-descripción
+
+Nombre de archivos
+
+Modelos ejem:
+User.js
+Client.js
+Admin.js
+Book.js
+Movie.js
+
+Controladores ejem:
+userController.js
+movieController.js
+keyboardController.js
+
+Validadores
+createUserValidator.js

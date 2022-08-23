@@ -13,7 +13,10 @@ const schemaProjection = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Movie'
   },
-  mainLanguage: String,
+  mainLanguage: {
+    type: String,
+    required: true,
+  },
   subtitled: Boolean,
   subtitlingLanguage: String,
   price: {

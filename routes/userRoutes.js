@@ -1,18 +1,18 @@
 import express from 'express';
 import * as userController from '../controllers/userController.js';
-import createUserValidator from '../middlewares/createClientValidator.js';
+import createUserValidator from '../middlewares/createUserValidator.js';
 
 
-const routerClients = express.Router();
+const router = express.Router();
 
-routerClients
-    .route('/clients')
-    .get(clientController.getAllClients)
-    .post(createClientValidator, clientController.createClient);
+router
+    .route('/users')
+    .get(userController.getAllUsers)
+    .post(createUserValidator, userController.createUser);
     
-routerClients
-    .route('/clients/:id')
-    .get(clientController.getClientById)
-    .put(clientController.updateClientById);
+router
+    .route('/user/:id')
+    .get(userController.getUserById)
+    .put(userController.updateUserById);
 
-export default routerClients;
+export default router;

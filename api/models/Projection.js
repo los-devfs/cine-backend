@@ -2,8 +2,8 @@ import mongoose from "mongoose";
 
 const schemaProjection = new mongoose.Schema({
   room: {
-    type: Number,
-    required: true,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Room',
   },
   schedule: {
     type: Date,

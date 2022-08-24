@@ -4,7 +4,7 @@ import * as movieController from '../controllers/movieController.js';
 const router = express.Router();
 
 router
-    .route('/peliculas')
+    .route('/movies')
     .get(movieController.getAllMovies);
 
 export default router;

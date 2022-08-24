@@ -1,0 +1,32 @@
+import joi from "joi";
+
+const genreSchema = joi.object().keys({
+  action: joi.string(),
+  comedy: joi.string(),
+  drama: joi.string(),
+  horror: joi.string(),
+  romance: joi.string(),
+  thriller: joi.string(),
+  western: joi.string(),
+});
+
+const createFilmSchema = joi.object({
+  name: joi.string().required(),
+  director: joi.string().required(),
+  producer: joi.string().required(),
+  releaseDate: joi.date(),
+  rated: joi.number().integer().positive().min(1).max(5),
+  genre: genreSchema,
+});
+
+export default async (req, res, next) => {
+  try {
+    await createFilmSchema.validateAsync(req.body);
+    next();
+  } catch (error) {
+    return res.status(400).json({
+      msg: "Error de validación",
+      error,
+    });
+  }
+};

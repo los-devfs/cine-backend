@@ -1,13 +1,19 @@
 import mongoose from "mongoose";
 
 const ModelGenre = new mongoose.Schema({
-  action: String,
-  comedy: String,
-  drama: String,
-  horror: String,
-  romance: String,
-  thriller: String,
-  western: String,
+  genre: {
+    type: String,
+    enum: [
+      "action",
+      "comedy",
+      "drama",
+      "horror",
+      "romance",
+      "thriller",
+      "western",
+    ],
+    default: "action",
+  },
 });
 
 export default mongoose.model("Genre", ModelGenre);

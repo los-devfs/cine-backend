@@ -1,5 +1,5 @@
 import express from 'express';
-import { getAllMovies } from './controllers/movieController.js';
+import movieRoutes from './routes/movieRoutes.js'
 
 const api = express();
 
@@ -9,6 +9,6 @@ api.get('/status', (_, res) => {
   retun;
 });
 
-api.get('/peliculas', getAllMovies);
+api.use(movieRoutes);
 
 export default api;

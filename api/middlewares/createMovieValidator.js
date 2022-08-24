@@ -1,7 +1,7 @@
 import joi from "joi";
 
 const genreSchema = joi.object().keys({
-  type: joi
+  name: joi
     .string()
     .valid(
       "action",
@@ -15,12 +15,15 @@ const genreSchema = joi.object().keys({
 });
 
 const createMovieSchema = joi.object({
-  name: joi.string().required(),
+  title: joi.string().required(),
   director: joi.string().required(),
   producer: joi.string().required(),
+  cover: joi.string().required(),
   releaseDate: joi.date(),
   rated: joi.number().integer().positive().min(1).max(5),
-  genre: genreSchema,
+  genre: joi.string(),
+  cast: joi.array().items(joi.string()),
+  synopsis: joi.string()
 });
 
 export default async (req, res, next) => {

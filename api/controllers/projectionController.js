@@ -3,9 +3,9 @@ import Projection from "../models/Projection.js";
 const deleteProjectionById = async (req, res) => {
     try {
       const { id } = req.params;
-      const deleteProjection = await Projection.findByIdAndDelete(id);
-      return res.json({
-        msg: 'Deleted projection',
+      const deleteProjection = await Projection.findByIdAndUpdate( id, { deleted: true} );
+      return res.status(200).json({
+        msg: 'Projection deleted',
         data: { projection: deleteProjection }
       })
     } catch (error) {
@@ -15,3 +15,6 @@ const deleteProjectionById = async (req, res) => {
       });
     }
   };
+
+  export { deleteProjectionById };
+  

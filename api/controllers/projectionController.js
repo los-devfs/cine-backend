@@ -1,4 +1,4 @@
-import Projection from '../models/Projection';
+import Projection from '../models/Projection.js';
 
 const createProjection = async (req, res) => {
     try {

@@ -13,14 +13,17 @@ const schema = new mongoose.Schema({
   },
   rate: {
     type: Number,
+    enums: [1, 2, 3, 4, 5],
     requires: true,
   },
   idUser: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true
   },
   idMovie: {
-    type: Number,
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Movie',
     required: true
   }
 });

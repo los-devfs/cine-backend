@@ -1,16 +1,20 @@
 import joi from "joi";
 
 const genreSchema = joi.object().keys({
-  action: joi.string(),
-  comedy: joi.string(),
-  drama: joi.string(),
-  horror: joi.string(),
-  romance: joi.string(),
-  thriller: joi.string(),
-  western: joi.string(),
+  type: joi
+    .string()
+    .valid(
+      "action",
+      "comedy",
+      "drama",
+      "horror",
+      "romance",
+      "thriller",
+      "western"
+    ),
 });
 
-const createFilmSchema = joi.object({
+const createMovieSchema = joi.object({
   name: joi.string().required(),
   director: joi.string().required(),
   producer: joi.string().required(),
@@ -21,7 +25,8 @@ const createFilmSchema = joi.object({
 
 export default async (req, res, next) => {
   try {
-    await createFilmSchema.validateAsync(req.body);
+    console.log(req.body);
+    await createMovieSchema.validateAsync(req.body);
     next();
   } catch (error) {
     return res.status(400).json({

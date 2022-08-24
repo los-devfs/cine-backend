@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 const ModelGenre = new mongoose.Schema({
-  genre: {
+  name: {
     type: String,
     enum: [
       "action",

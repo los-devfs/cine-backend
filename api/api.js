@@ -1,4 +1,5 @@
 import express from 'express';
+import projectionRoutes from './routes/projectionRoutes.js'
 
 const api = express();
 
@@ -7,5 +8,7 @@ const api = express();
 api.get('/status', (_, res) => {
   retun;
 });
+
+api.use(projectionRoutes)
 
 export default api;

@@ -5,6 +5,6 @@ import deleteProjectionValidator from '../middlewares/deleteProjectionValidator.
 const router = express.Router();
 
 router
-    .post('/delete', deleteProjectionValidator, projectionControllerById)
+    .post('/delete/:id', projectionControllerById)
 
 export default router;

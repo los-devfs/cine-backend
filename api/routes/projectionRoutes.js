@@ -12,6 +12,6 @@ router
     .route('/projections/:id')
     .get(projectionController.getProjectionById)
     .put(projectionController.updateProjectionById)
-    .delete(projectionController.deleteProjectionById)
+    .delete(projectionController.deleteProjectionById);
 
 export default router;

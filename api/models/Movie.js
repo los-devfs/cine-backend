@@ -37,4 +37,6 @@ const schema = new mongoose.Schema({
   }
 });
 
+schema.index({title: 'text'});
+
 export default mongoose.model("Movie", schema);

@@ -14,6 +14,7 @@ const createProjection = async (req, res) => {
         })
     }
 }
+/*
 const getAllProjections = async (req, res) => {
     try {
         const projections = await Projection.find();
@@ -85,5 +86,5 @@ const deleteProjectionById = async (req, res) => {
         })
     }
 };
-
-export {createProjection, getAllProjections, getProjectionById, updateProjectionById, deleteProjectionById}
+*/
+export {createProjection}

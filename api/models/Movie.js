@@ -34,7 +34,12 @@ const schema = new mongoose.Schema({
   cover: {
     type: String,
     required: true,
-  }
+  },
+  review: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Review',
+    required: true
+  }]
 });
 
 export default mongoose.model("Movie", schema);

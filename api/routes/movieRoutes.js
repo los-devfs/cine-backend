@@ -4,6 +4,7 @@ import createMovieValidator from "../middlewares/createMovieValidator.js";
 
 const router = Router();
 
-router.route("/").post(createMovieValidator, movieController.createMovie);
+router.route("/movies").post(createMovieValidator, movieController.createMovie);
+router.route("/movies/:titleMovie").post(movieController.movieWithReview)
 
 export default router;

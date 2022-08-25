@@ -4,9 +4,9 @@
  * parámetros dejará o no pasar al usuario que mandó el token
  */
  
-export default  async (...allRoles)=>{
+export default (...allRoles)=>{
     return (req,res,next)=>{
-        if(!req || !req.roles ) 
+        if(!req.role) 
         {
             return res.status(401).json(
                 {
@@ -16,14 +16,7 @@ export default  async (...allRoles)=>{
             )
         }
 
-        const rolesArray=[...allRoles]
-        const result = req.roles.map(
-            role => {
-                rolesArray.includes(role)
-            }
-        ).find(val => val===true)
-
-        if (!result)
+        if (!allRoles.includes(req.role))
         {
             return res.status(401).json(
                 {

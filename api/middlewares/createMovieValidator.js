@@ -42,11 +42,10 @@ export default async (req, res, next) => {
   try {
     console.log(req.body);
     await createMovieSchema.validateAsync(req.body);
-    await updateMovieSchema.validateAsync(req.body);
     next();
   } catch (error) {
     return res.status(400).json({
-      msg: "Error de validación",
+      msg: "There was an error  while trying to validate",
       error,
     });
   }

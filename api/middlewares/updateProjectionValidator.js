@@ -6,8 +6,8 @@ const updateProjectionSchema = joi.object({
   schedule: joi.date(),
   movie: joi.string().trim().min(1),
   mainLanguage: joi.string().trim().min(1),
-  subtitle: joi.boolean(),
-  subtitlingLanguage: joi.string().trim().min(1),
+  subtitled: joi.boolean(),
+  subtitlingLanguage: joi.string().trim().allow(''),
   price: joi.number()
 })
 

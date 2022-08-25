@@ -5,21 +5,18 @@ import roomRoutes from './routes/roomRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 
 const api = express();
+api.use(express.json());
 
 //TODO: registrar middlewares y rutas
-api.use(express.json());
 
 api.get('/status', (_, res) => {
   return res.json({
     msg: 'API funcionando',
   });
 });
-
-api.use(userRoutes);
 api.use(movieRoutes);
+api.use(userRoutes);
 api.use(roomRoutes);
-
-//registrar ruta de projection:
-api.use('/projections', projectionRoutes);
+api.use(projectionRoutes);
 
 export default api;

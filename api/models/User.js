@@ -19,6 +19,7 @@ const schema = new mongoose.Schema({
   email:{
     type: String,
     required: true,
+    unique: true,
   },
   password:{
     type: String,
@@ -28,3 +29,4 @@ const schema = new mongoose.Schema({
 });
 
 export default mongoose.model("User", schema);
+

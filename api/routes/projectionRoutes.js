@@ -6,6 +6,7 @@ const router = express.Router();
 
 router
   .route('/:id')
-  .put(updateProjectionValidator, projectionController.updateProjectionById);
+  .put(updateProjectionValidator, projectionController.updateProjectionById)
+  .delete(projectionController.deleteProjectionById)
 
 export default router;

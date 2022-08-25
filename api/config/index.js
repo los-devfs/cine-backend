@@ -9,4 +9,7 @@ export default {
   database: {
     uri: process.env.URI || 'mongodb://localhost/cine',
   },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+  }
 };

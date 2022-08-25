@@ -1,6 +1,8 @@
 import express from 'express';
+import projectionRoutes from './routes/projectionRoutes.js';
 import movieRoutes from './routes/movieRoutes.js';
 import roomRoutes from './routes/roomRoutes.js';
+import userRoutes from './routes/userRoutes.js';
 
 const api = express();
 api.use(express.json());
@@ -13,6 +15,8 @@ api.get('/status', (_, res) => {
   });
 });
 api.use(movieRoutes);
+api.use(userRoutes);
 api.use(roomRoutes);
+api.use(projectionRoutes);
 
 export default api;

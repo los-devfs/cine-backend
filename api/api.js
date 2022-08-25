@@ -1,5 +1,6 @@
 import express from 'express';
 import movieRoutes from './routes/movieRoutes.js';
+import roomRoutes from './routes/roomRoutes.js';
 
 const api = express();
 api.use(express.json());
@@ -12,5 +13,6 @@ api.get('/status', (_, res) => {
   });
 });
 api.use(movieRoutes);
+api.use(roomRoutes);
 
 export default api;

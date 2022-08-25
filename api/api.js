@@ -1,4 +1,5 @@
 import express from 'express';
+import userRouter from './routes/userRoutes.js'
 
 const api = express();
 
@@ -7,5 +8,8 @@ const api = express();
 api.get('/status', (_, res) => {
   retun;
 });
+
+// aca se registran las rutas
+api.use(userRouter);
 
 export default api;

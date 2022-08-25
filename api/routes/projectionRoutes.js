@@ -5,8 +5,8 @@ import updateProjectionValidator from '../middlewares/updateProjectionValidator.
 const router = express.Router();
 
 router
-  .route('/:id')
+  .route('/projections/:id')
   .put(updateProjectionValidator, projectionController.updateProjectionById)
-  .delete(projectionController.deleteProjectionById)
+  .delete(projectionController.deleteProjectionById);
 
 export default router;

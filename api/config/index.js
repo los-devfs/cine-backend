@@ -17,8 +17,10 @@ export default {
       pass: process.env.EMAIL_AUTH_PASS,
     },
     from: process.env.EMAIL_FROM,
+    subject:process.env.EMAIL_SUBJECT
   },
   jwt: {
     secret: process.env.JWT_SECRET,
-  }
+  },
+  linkVerificateUser: process.env.LINK_VERIFICATE_USER 
 };

@@ -26,6 +26,10 @@ const schema = new mongoose.Schema({
     required: true,
   },
   birthDate: Date,
+  isVerificate: {
+    type:Boolean,
+    default: false
+  }
 });
 
 export default mongoose.model("User", schema);

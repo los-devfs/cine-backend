@@ -4,9 +4,12 @@ import projectionRoutes from './routes/projectionRoutes.js';
 const api = express();
 
 //TODO: registrar middlewares y rutas
+api.use(express.json());
 
 api.get('/status', (_, res) => {
-  retun;
+  return res.json({
+    msg: 'server on',
+  });
 });
 
 //registrar ruta de projection:

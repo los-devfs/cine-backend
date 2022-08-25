@@ -1,10 +1,11 @@
 import express from 'express';
 import * as projectionController from '../controllers/projectionController.js';
+import updateProjectionValidator from '../middlewares/updateProjectionValidator.js';
 
 const router = express.Router();
 
 router
   .route('/:id')
-  .put(projectionController.updateProjectionById);
+  .put(updateProjectionValidator, projectionController.updateProjectionById);
 
 export default router;

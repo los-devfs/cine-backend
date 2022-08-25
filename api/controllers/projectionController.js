@@ -2,6 +2,7 @@ import Projection from '../models/Projection.js';
 
 const updateProjectionById = async (req, res) => {
   try {
+    const { id } = req.params;
     const projection = await Projection.findByIdAndUpdate(id, req.body, {
       new: true,
     })

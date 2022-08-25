@@ -5,13 +5,13 @@ const router = express.Router();
 
 router
     .route('/projections')
-    .get(projectionController.getAllProjections)
+    /*.get(projectionController.getAllProjections)*/
     .post(projectionController.createProjection);
 
-router
+/*router
     .route('/projections/:id')
     .get(projectionController.getProjectionById)
     .put(projectionController.updateProjectionById)
-    .delete(projectionController.deleteProjectionById);
+    .delete(projectionController.deleteProjectionById);*/
 
 export default router;

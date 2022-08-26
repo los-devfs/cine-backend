@@ -18,7 +18,6 @@ const disableUserbyId = async (req, res) => {
         data: user
       })
     }
-
   } catch (error) {
     return res.status(403).json({
       msg: "Tenemos un 33-12",
@@ -44,4 +43,3 @@ const updateUserById = async (req, res) => {
 };
 
 export { updateUserById, disableUserbyId };
-

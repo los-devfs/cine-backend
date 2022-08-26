@@ -26,6 +26,10 @@ const schema = new mongoose.Schema({
     required: true,
   },
   birthDate: Date,
+  isVerificate: {
+    type:Boolean,
+    default: false
+  },
   isActive: {
     type: Boolean,
     default: true,

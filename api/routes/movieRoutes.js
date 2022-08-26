@@ -1,10 +1,15 @@
-import { Router } from "express";
-import * as movieController from "../controllers/movieController.js";
-import createMovieValidator from "../middlewares/createMovieValidator.js";
+import express from 'express';
+import * as movieController from '../controllers/movieController.js';
+import createMovieValidator from '../middlewares/createMovieValidator.js';
 
-const router = Router();
+const router = express.Router();
 
-router.route("/movies").post(createMovieValidator, movieController.createMovie);
+
+router.route('/movies').get(movieController.getAllMovies);
+router.route('/movies').post(createMovieValidator, movieController.createMovie);
+router.route('/movies').put(createMovieValidator, movieController.updateMovieById);
+
+router.route('/:id').delete(movieController.deleteMovieById);
 router.route("/movies/:titleMovie").post(movieController.movieWithReview)
 
 export default router;

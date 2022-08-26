@@ -14,7 +14,7 @@ const genreSchema = joi.object().keys({
     ),
 });
 
-const createMovieSchema = joi.object({
+const movieBodyValidatorSchema = joi.object({
   title: joi.string().required(),
   director: joi.string().required(),
   producer: joi.string().required(),
@@ -26,14 +26,15 @@ const createMovieSchema = joi.object({
   synopsis: joi.string()
 });
 
+
 export default async (req, res, next) => {
   try {
     console.log(req.body);
-    await createMovieSchema.validateAsync(req.body);
+    await movieBodyValidatorSchema.validateAsync(req.body);
     next();
   } catch (error) {
     return res.status(400).json({
-      msg: "Error de validación",
+      msg: "There was an error  while trying to validate",
       error,
     });
   }

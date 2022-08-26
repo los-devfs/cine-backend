@@ -23,13 +23,11 @@ const movieBodyValidatorSchema = joi.object({
   rated: joi.number().integer().positive().min(1).max(5),
   genre: joi.string(),
   cast: joi.array().items(joi.string()),
-  synopsis: joi.string()
+  synopsis: joi.string(),
 });
-
 
 export default async (req, res, next) => {
   try {
-    console.log(req.body);
     await movieBodyValidatorSchema.validateAsync(req.body);
     next();
   } catch (error) {

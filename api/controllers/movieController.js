@@ -62,7 +62,7 @@ const createMovie = async (req, res) => {
   try {
     const newMovie = await Movie.create(req.body);
     return res.json({
-      msg: 'Movie creado',
+      msg: 'Movie created',
       Movie: newMovie,
     });
   } catch (error) {

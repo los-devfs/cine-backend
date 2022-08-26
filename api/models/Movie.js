@@ -34,7 +34,7 @@ const schema = new mongoose.Schema({
   cover: {
     type: String,
     required: true,
-  }
+  },
 });
 
 schema.index({title: 'text'});

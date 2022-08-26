@@ -5,10 +5,13 @@ import updateGenreValidator from '../middlewares/updateGenreValidator.js';
 
 const router = express.Router();
 
-router.route('/genres')
-  .post(createGenreValidator, genreController.createGenre);
+router
+  .route('/genres')
+    .post(createGenreValidator, genreController.createGenre);
 
-router.route('/genres/:id')
-  .put(updateGenreValidator, genreController.updateGenreById);
+router
+  .route('/genres/:id')
+    .delete(genreController.deleteGenreById)
+    .put(updateGenreValidator, genreController.updateGenreById);
 
 export default router;

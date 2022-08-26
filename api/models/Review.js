@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-
 const schema = new mongoose.Schema({
   review: {
     title: {
@@ -21,13 +20,13 @@ const schema = new mongoose.Schema({
   idUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
   },
   idMovie: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Movie',
-    required: true
-  }
+    required: true,
+  },
 });
 
 export default mongoose.model('Review', schema);

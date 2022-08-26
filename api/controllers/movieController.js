@@ -38,10 +38,10 @@ const createMovie = async (req, res) => {
 const updateMovieById = async (req, res) => {
   try {
     const { id } = req.params;
-    const updateMovie = await Book.findByIdAndUpdate(id, req.body, { new: true });
+    const updateMovie = await Movie.findByIdAndUpdate(id, req.body, { new: true });
     return res.json({
       msg: 'The movie has been updated',
-      data: { book: updateMovie },
+      data: { movie: updateMovie },
     })
   } catch (error) {
     return res.status(500).json({
@@ -56,12 +56,12 @@ const deleteMovieById = async (req, res) => {
     const { id } = req.params;
     const movie = await Movie.findByIdAndDelete(id);
     return res.json({
-      msg: 'Pelicula borrada',
+      msg: 'The movie was deleted',
       data: { movie },
     });
   }catch (error){
     return res.status(500).json({
-      msg: 'Error al borrar la pelicula',
+      msg: 'Error while trying to delete the movie',
       error,
     });
   }

@@ -29,7 +29,7 @@ const movieWithReview = async (req,res) => {
     const movie = await Movie.findById(id)
     // Si no encuentra la peli
     if (!movie) {
-        return res.status(204).json({
+        return res.status(404).json({
           msg: "Movie no encontrada",
           data: {},
         })

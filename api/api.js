@@ -4,6 +4,7 @@ import movieRoutes from './routes/movieRoutes.js';
 import roomRoutes from './routes/roomRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import genreRoutes from './routes/genreRoutes.js';
+import ticketRoutes from './routes/ticketRoutes.js';
 
 const api = express();
 api.use(express.json());
@@ -20,5 +21,6 @@ api.use(userRoutes);
 api.use(roomRoutes);
 api.use(projectionRoutes);
 api.use(genreRoutes);
+api.use(ticketRoutes);
 
 export default api;

@@ -1,6 +1,6 @@
-import moongose from 'mongoose';
+import mongoose from 'mongoose';
 
-const schema = new moongose.schema({
+const schema = new mongoose.Schema({
     code: {
         type: String,
     },
@@ -11,15 +11,15 @@ const schema = new moongose.schema({
         type: Number,
     },
     user:{
-        type: moongose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         
         
     },
     projection:{
-        type: moongose.Schema.Types.ObjectId,
+        type: mongoose.Schema.Types.ObjectId,
         ref: 'Projection',
     },
 
 })
-export default moongose.model('Ticket', schema);
+export default mongoose.model('Ticket', schema);

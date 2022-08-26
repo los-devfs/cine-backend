@@ -5,9 +5,11 @@ const schema = new mongoose.Schema({
   review: {
     title: {
       type: String,
+      required: true
     },
     body: {
-      type: String
+      type: String,
+      required: true
     },
     required: true
   },

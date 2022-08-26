@@ -1,4 +1,5 @@
 import Movie from '../models/Movie.js';
+import Review from '../models/Review.js';
 //const tempResponse = [{nameMovie: "titanic"},{nameMovie: "armagedon"}];
 
 const getAllMovies = async (req, res) => {
@@ -33,10 +34,10 @@ const movieWithReview = async (req,res) => {
           data: {},
         })
     }
-    // Si la encuentra, la enlazamos con sus reviews
-    const reviews = await movie.populate('review');
+    // Si la encuentra, buscamos sus reviews
+    const reviews = await Review.find({idMovie: id})
     // Si no hay reviews
-    if(!movie.review){
+    if(!reviews){
       return res.status(404).json({
         msg: "No existen review para mostrar",
         data: {},
@@ -45,7 +46,7 @@ const movieWithReview = async (req,res) => {
     // Si todo sale bien
     return res.json({
       msg: "Movie con sus reviews",
-      data: {reviews}
+      data: {movie: movie.title, reviews: reviews}
     })
   } catch (error) {
     return res.status(500).json({

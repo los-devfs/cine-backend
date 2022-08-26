@@ -15,4 +15,21 @@ const createGenre = async (req, res) => {
     }
   };
 
-export  { createGenre };
+const updateGenreById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const genre = await Genre.findByIdAndUpdate(id, req.body, {new: true});
+
+    return res.json({
+      msg: "Genero actualizado",
+      data: { genre },
+    })
+  } catch (error) {
+    return res.status(500).json({
+      msg: "Error al actualizar genero",
+      error,
+    })
+  }
+}
+
+export  { createGenre, updateGenreById };

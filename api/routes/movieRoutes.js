@@ -14,4 +14,6 @@ router
   .route("/movies/:idMovie/review")
   .post(isAuth, createReviewValidator, reviewController.createReview);
 
+router.route('/:id').delete(movieController.deleteMovieById);
+
 export default router;

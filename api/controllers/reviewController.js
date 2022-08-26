@@ -9,7 +9,8 @@ const createReview = async (req, res) => {
     })
   } catch (error) {
     return res.status(500).json({
-      msg: "Error al crear review"
+      msg: "Error al crear review",
+      error
     })
   }
 }

@@ -25,7 +25,7 @@ const createGenre = async (req, res) => {
       })
     } catch (error) {
       return res.status(500).json({
-        msg: 'Error when deleting the genre by Id',
+        msg: 'Error while deleting the genre',
         data: error,
       });
     }
@@ -43,7 +43,7 @@ const updateGenreById = async (req, res) => {
     })
   } catch (error) {
     return res.status(500).json({
-      msg: "Error al actualizar genero",
+      msg: "Error while updating the genre",
       error,
     })
   }

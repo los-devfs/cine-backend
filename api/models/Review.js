@@ -2,15 +2,15 @@ import mongoose from 'mongoose';
 
 const schema = new mongoose.Schema({
   review: {
-    type: {
-      title: {
-        type: String,
-      },
-      body: {
-        type: String,
-      },
+    title: {
+      type: String,
+      required: true
     },
-    required: true,
+    body: {
+      type: String,
+      required: true
+    },
+    required: true
   },
   rate: {
     type: Number,

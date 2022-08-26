@@ -23,9 +23,9 @@ const getAllMovies = async (req, res) => {
 const movieWithReview = async (req,res) => {
   try {
     // Obtenemos de la url el titulo de la pelicula
-    const { titleMovie } = req.params;
+    const { id } = req.params;
     // Buscamos la pelicula 
-    const movie = await Movie.findOne({title:titleMovie})
+    const movie = await Movie.findById(id)
     // Si no encuentra la peli
     if (!movie) {
         return res.status(204).json({
@@ -37,7 +37,7 @@ const movieWithReview = async (req,res) => {
     const reviews = await movie.populate('review');
     // Si no hay reviews
     if(!movie.review){
-      return res.status(204).json({
+      return res.status(404).json({
         msg: "No existen review para mostrar",
         data: {},
       })

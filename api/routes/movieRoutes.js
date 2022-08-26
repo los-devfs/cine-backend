@@ -10,6 +10,6 @@ router.route('/movies').post(createMovieValidator, movieController.createMovie);
 router.route('/movies').put(createMovieValidator, movieController.updateMovieById);
 
 router.route('/:id').delete(movieController.deleteMovieById);
-router.route("/movies/:titleMovie").post(movieController.movieWithReview)
+router.route("/movies/:id").post(movieController.movieWithReview)
 
 export default router;

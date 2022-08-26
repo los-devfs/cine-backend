@@ -7,7 +7,7 @@ const isLogged =  async (req, res, next) => {
         const token = req.headers.authorization;
         if(!token){
             return res.status(400).json({
-                msg: 'Cabecera Authorization faltante',
+                msg: 'Cabecera Authorization Faltante',
             });
         }
 

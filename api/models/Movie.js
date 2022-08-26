@@ -35,11 +35,6 @@ const schema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  review: [{
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Review',
-    required: true
-  }]
 });
 
 schema.index({title: 'text'});

@@ -17,17 +17,17 @@ const isLogged =  async (req, res, next) => {
 
         if(!user){
             return res.status(401).json({
-                msg: 'Usuario invalido',
+                msg: 'Usuario invalido',         
             })
         }
         
-        const expirationDate = new date(payload.expirationDate);
+        const expirationDate = new Date(payload.expirationDate);
         if(expirationDate.getTime() < new Date().getTime()){
             return res.status(400).json({
                 msg: "El token expiro",
             });
         }
-        
+        req.userId = user.id
         next()
     } catch (error) {
         return res.status(401).json({

@@ -40,6 +40,37 @@ const updateUserById = async (req, res) => {
       data: error
     });
   }
+
 };
 
-export { updateUserById, disableUserbyId };
+
+const changePassword = async(req,res)=>{
+  try {
+    //buscar usuario por id
+    // comprobar password old
+    // si no coincide, error
+    //si coincide, encriptar nueva passwoord y guardar
+
+    const usuario = await User.findById(req.params.id)
+    const passCorrect = await bcrypt.compare(req.body.oldPassword, usuario.password );
+    if(!passCorrect){
+      res.status(401).json({msg:'Contraseña no coincide'})
+    }
+    else {
+      const encryptedPass = await bcrypt.hash(req.body.newPassword, 4);
+      
+      usuario.password = encryptedPass
+      await usuario.save() 
+      res.status(200).json({msg:'Contraseña guardada'})
+
+    }    
+  } catch (error) {
+    return res.json({
+      msg:"Error al cambiar contraseña",
+      data: error
+    })
+  }
+}
+
+export { updateUserById, disableUserbyId, changePassword };
+

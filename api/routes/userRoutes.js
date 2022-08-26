@@ -10,5 +10,9 @@ router
   .route('/user/:id')
   .put(updateUserValidator, userController.updateUserById);
 
+router.route('/:id/changepassword')
+.put(userController.changePassword);
+
+
 
 export default router;

@@ -14,6 +14,10 @@ const ModelGenre = new mongoose.Schema({
     ],
     default: "action",
   },
+  deleted: { 
+    type: Boolean, 
+    default: false 
+  }
 });
 
 export default mongoose.model("Genre", ModelGenre);

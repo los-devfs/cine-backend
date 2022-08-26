@@ -5,9 +5,7 @@ const createReviewSchema = joi.object({
     title: joi.string().required(),
     body: joi.string().required(),
   },
-  rate: joi.array().required(),
-  idUser: joi.string().required(),
-  idMovie: joi.string().required(),
+  rate: joi.number().integer().positive().min(1).max(5),
 });
 
 export default async (req, res, next) => {

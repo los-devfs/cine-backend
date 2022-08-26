@@ -15,8 +15,7 @@ const schema = new mongoose.Schema({
     required: true,
   },
   rate: {
-    type: Array,
-    enums: [1, 2, 3, 4, 5],
+    type: Number,
     required: true,
   },
   idUser: {

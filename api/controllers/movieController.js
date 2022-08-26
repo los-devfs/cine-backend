@@ -35,4 +35,36 @@ const createMovie = async (req, res) => {
   }
 };
 
-export { getAllMovies, createMovie };
+const updateMovieById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updateMovie = await Book.findByIdAndUpdate(id, req.body, { new: true });
+    return res.json({
+      msg: 'The movie has been updated',
+      data: { book: updateMovie },
+    })
+  } catch (error) {
+    return res.status(500).json({
+      msg: 'There was an error while trying to update the movie',
+      data: error,
+    });
+  }
+};
+
+const deleteMovieById = async (req, res) => {
+  try{
+    const { id } = req.params;
+    const movie = await Movie.findByIdAndDelete(id);
+    return res.json({
+      msg: 'Pelicula borrada',
+      data: { movie },
+    });
+  }catch (error){
+    return res.status(500).json({
+      msg: 'Error al borrar la pelicula',
+      error,
+    });
+  }
+};
+
+export { getAllMovies, createMovie, updateMovieById, deleteMovieById };

@@ -1,27 +1,27 @@
 import mongoose from "mongoose";
 
 const schema = new mongoose.Schema({
-  name:{
+  name: {
     type: String,
     required: true,
   },
-  lastName:{
+  lastName: {
     type: String,
     required: true,
   },
-  role:{
+  role: {
     type: String,
-    enum : ['Administrator','Employee','Customer'],
+    enum: ['Administrator', 'Employee', 'Customer'],
     default: 'Employee',
     required: true,
-    
+
   },
-  email:{
+  email: {
     type: String,
     required: true,
     unique: true,
   },
-  password:{
+  password: {
     type: String,
     required: true,
   },
@@ -29,7 +29,11 @@ const schema = new mongoose.Schema({
   isVerificate: {
     type:Boolean,
     default: false
-  }
+  },
+  isActive: {
+    type: Boolean,
+    default: true,
+  },
 });
 
 export default mongoose.model("User", schema);

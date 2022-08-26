@@ -11,7 +11,7 @@ router
   .put(updateUserValidator, userController.updateUserById);
 
 router.route('/:id/changepassword')
-.put(userController)
+.put(userController.changePassword);
 
 
 

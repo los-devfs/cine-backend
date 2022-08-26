@@ -63,12 +63,7 @@ const changePassword = async(req,res)=>{
       await usuario.save() 
       res.status(200).json({msg:'Contraseña guardada'})
 
-    }
-
-
-
-
-    
+    }    
   } catch (error) {
     return res.json({
       msg:"Error al cambiar contraseña",
@@ -77,5 +72,5 @@ const changePassword = async(req,res)=>{
   }
 }
 
-export { updateUserById, disableUserbyId };
+export { updateUserById, disableUserbyId, changePassword };
 

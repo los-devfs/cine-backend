@@ -51,4 +51,20 @@ const updateMovieById = async (req, res) => {
   }
 };
 
-export { getAllMovies, createMovie, updateMovieById };
+const deleteMovieById = async (req, res) => {
+  try{
+    const { id } = req.params;
+    const movie = await Movie.findByIdAndDelete(id);
+    return res.json({
+      msg: 'Pelicula borrada',
+      data: { movie },
+    });
+  }catch (error){
+    return res.status(500).json({
+      msg: 'Error al borrar la pelicula',
+      error,
+    });
+  }
+};
+
+export { getAllMovies, createMovie, updateMovieById, deleteMovieById };

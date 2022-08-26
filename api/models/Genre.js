@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const ModelGenre = new mongoose.Schema({
   name: {
     type: String,
-    enum: [
+    /* enum: [
       "action",
       "comedy",
       "drama",
@@ -11,7 +11,7 @@ const ModelGenre = new mongoose.Schema({
       "romance",
       "thriller",
       "western",
-    ],
+    ], */
     default: "action",
   },
   deleted: { 

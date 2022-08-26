@@ -8,4 +8,6 @@ router.route('/movies').get(movieController.getAllMovies);
 router.route('/movies').post(createMovieValidator, movieController.createMovie);
 router.route('/movies').put(createMovieValidator, movieController.updateMovieById);
 
+router.route('/:id').delete(movieController.deleteMovieById);
+
 export default router;

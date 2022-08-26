@@ -1,15 +1,16 @@
 import mongoose from 'mongoose';
 
-
 const schema = new mongoose.Schema({
   review: {
-    title: {
-      type: String,
+    type: {
+      title: {
+        type: String,
+      },
+      body: {
+        type: String,
+      },
     },
-    body: {
-      type: String
-    },
-    required: true
+    required: true,
   },
   rate: {
     type: Number,
@@ -19,13 +20,13 @@ const schema = new mongoose.Schema({
   idUser: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
-    required: true
+    required: true,
   },
   idMovie: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Movie',
-    required: true
-  }
+    required: true,
+  },
 });
 
 export default mongoose.model('Review', schema);
